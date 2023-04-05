@@ -24,7 +24,8 @@ const mongodb_atlas_url = process.env.MONGODB_URL;
 //TODO - Replace you Connection String here
 mongoose.connect(mongodb_atlas_url, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  writeConcern: { w: 'majority' }
 }).then(success => {
   console.log('Success Mongodb connection')
 }).catch(err => {
